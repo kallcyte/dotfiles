@@ -46,11 +46,30 @@ window#waybar {
     padding: 0 5px;
     background-color: transparent;
     color: @subtext0;
+    transition: all 0.3s ease-in-out;
+    margin: 4px 2px;
+    border-radius: 4px;
 }
 
 #workspaces button.active {
     color: @blue;
     background-color: @surface0;
+}
+
+/* Force hover state for ALL workspace buttons */
+#workspaces button:hover {
+    background-color: @sapphire;
+    color: @base;
+    border-radius: 4px; /* Matches your other modules */
+    box-shadow: inherit;
+    text-shadow: inherit;
+    transition: background-color 0.2s ease;
+}
+
+/* Optional: Make the ACTIVE workspace hover look different (darker) */
+#workspaces button.active:hover {
+    background-color: @sky; 
+    color: @base;
 }
 
 #clock,
@@ -70,7 +89,7 @@ window#waybar {
 #bluetooth,
 #custom-prayer,
 #custom-power,
-#taskbar
+#taskbar, #cpu, #memory, #mpris, #custom-mpris
 {
     padding: 0 10px;
     color: @text;
@@ -94,8 +113,9 @@ window#waybar {
     color: @base;
 }
 
-#network {
+#network, #cpu, #memory {
     color: @sapphire;
+    min-width: 20px;
 }
 
 #pulseaudio {
@@ -103,10 +123,13 @@ window#waybar {
 }
 
 #custom-prayer {
-    background-color: @maroon; /* or use @peach */
-    color: @base;
-    padding: 0 10px;
+       padding: 0 10px;
     margin: 4px 2px;
     border-radius: 4px;
     font-weight: bold;
+}
+
+#mpris, #custom-mpris {
+  background-color: @mauve;
+  color: @base;
 }

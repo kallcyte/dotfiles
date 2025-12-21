@@ -3,10 +3,13 @@
     "position": "top",
     "height": 34,
     "spacing": 4,
-    "modules-left": ["hyprland/workspaces", "custom/prayer"],
-    "modules-center": ["clock", "mpris"],
-    "modules-right": ["wlr/taskbar", "pulseaudio", "network", "bluetooth"],
-
+    "modules-left": ["custom/power","hyprland/workspaces", "custom/prayer"],
+    "modules-center": ["clock", "custom/mpris"],
+    "modules-right": ["network", "cpu", "memory", "pulseaudio", "tray"],
+    "tray": {
+      "icon-size": 21,
+      "spacing": 10
+    },
     "hyprland/workspaces": {
         "format": "{name}",
         "on-click": "activate",
@@ -24,7 +27,7 @@
     },
 
     "clock": {
-        "format": "{:%H:%M:%S}",
+        "format": "{:%a %d/%m/%y %H:%M:%S}",
         "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
@@ -42,13 +45,27 @@
         "on-click": "pavucontrol"
     },
 
-    "network": {
-        "format-wifi": "",
-        "format-ethernet": "󰈀",
-        "tooltip-format": "{essid}",
-        "format-disconnected": "⚠"
+    "cpu": {
+    "interval": 1,
+    "format": " {usage}%",
+    "tooltip": true
+},
+
+    "memory": {
+      "interval": 1,
+      "format": " {percentage}%",
+      "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G"
     },
 
+    "network": {
+        "interval": 1,
+        "on-click": "nm-applet",
+        "format-wifi": "  ⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
+        "format-ethernet": "󰈀  ⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
+        "format-linked": "󰈀 (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}\nTotal Up: {bandwidthUpBytes}\nTotal Down: {bandwidthDownBytes}"
+    },
     "bluetooth": {
         "format": "",
         "format-connected": " {device_alias}",
@@ -57,13 +74,13 @@
 
     "custom/power": {
         "format": "⏻",
-        "on-click": "wlogout", // Or your preferred logout script
+        "on-click": "~/.config/hypr/scripts/powermenu.sh", // Or your preferred logout script
         "tooltip": false
     },
 
-  "mpris": {
-        "format": "{player_icon} {title}",
-        "format-paused": "{status_icon} <i>{title}</i>",
+    "mpris": {
+        "format": "{player_icon} {artist} - {title}",
+        "format-paused": "{status_icon} <i>{artist} - {title}</i>",
         "player-icons": {
             "default": "▶",
             "spotify": "",
@@ -73,5 +90,12 @@
             "paused": "⏸"
         },
         "max-length": 30
-    }
+    },
+    "custom/mpris": {
+        "format": "󰎇 {}",
+        "exec": "~/.config/waybar/scripts/mpris_scroll.sh",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+    },
 }

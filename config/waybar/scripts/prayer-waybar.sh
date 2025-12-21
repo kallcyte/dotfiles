@@ -1,73 +1,46 @@
 #!/bin/bash
 
-# Log file for debugging
-LOG="/tmp/waybar_prayer.log"
+# 1. Get Raw Data
+# Clean colors and tabs immediately
+NEXT_RAW=$(go-pray next | sed 's/\x1b\[[0-9;]*m//g' | tr -s ' ' | tr -d '\r')
+CAL_RAW=$(go-pray calendar | sed 's/\x1b\[[0-9;]*m//g' | tr -s ' ' | tr -d '\r')
 
-# 1. Run go-pray and strip ANSI color codes
-# The 'sed' command removes invisible color characters
-RAW_OUTPUT=$(go-pray calendar | sed 's/\x1b\[[0-9;]*m//g')
+# 2. Parse "Next" Info
+# Input: "Fajr in 03:25"
+NEXT_NAME=$(echo "$NEXT_RAW" | awk '{print $1}')
+COUNTDOWN=$(echo "$NEXT_RAW" | awk '{print $3}')
 
-# Debug: Write raw output to log to see what the script actually sees
-echo "--- Raw Output ---" >"$LOG"
-echo "$RAW_OUTPUT" >>"$LOG"
-
-# 2. Extract times
-# We search for the pattern "HH:MM" (e.g., 04:12 or 19:30)
-# We default to "00:00" if empty to prevent JSON crashes
-FAJR=$(echo "$RAW_OUTPUT" | grep -i "Fajr" | grep -o '[0-9]\{2\}:[0-9]\{2\}' | head -n1)
-DHUHR=$(echo "$RAW_OUTPUT" | grep -i "Dhuhr" | grep -o '[0-9]\{2\}:[0-9]\{2\}' | head -n1)
-ASR=$(echo "$RAW_OUTPUT" | grep -i "Asr" | grep -o '[0-9]\{2\}:[0-9]\{2\}' | head -n1)
-MAGHRIB=$(echo "$RAW_OUTPUT" | grep -i "Maghrib" | grep -o '[0-9]\{2\}:[0-9]\{2\}' | head -n1)
-ISHA=$(echo "$RAW_OUTPUT" | grep -i "Isha" | grep -o '[0-9]\{2\}:[0-9]\{2\}' | head -n1)
-
-# Debug: Log parsed times
-echo "--- Parsed ---" >>"$LOG"
-echo "Fajr: $FAJR" >>"$LOG"
-
-# 3. Convert Time Function
-to_mins() {
-  # If empty, return large number to avoid triggering
-  if [ -z "$1" ]; then
-    echo 9999
-    return
-  fi
-  IFS=: read -r h m <<<"$1"
-  # Remove leading zeros (e.g., 04 -> 4) to avoid octal error
-  h=${h#0}
-  m=${m#0}
-  echo $((h * 60 + m))
+# 3. Parse Individual Times for Tooltip (Safest Method)
+# We find the line, remove the name/colon, and grab the time.
+get_time() {
+  echo "$CAL_RAW" | grep -i "^$1" | sed "s/$1: //I" | xargs
 }
 
-CURRENT_HM=$(date +%H:%M)
-CURRENT_MINS=$(to_mins "$CURRENT_HM")
+T_FAJR=$(get_time "Fajr")
+T_DHUHR=$(get_time "Dhuhr")
+T_ASR=$(get_time "Asr")
+T_MAGHRIB=$(get_time "Maghrib")
+T_ISHA=$(get_time "Isha")
 
-# 4. Logic: Find Next Prayer
-# We handle empty vars by checking syntax length
-if [ -z "$FAJR" ]; then
-  echo "{\"text\": \"Parse Error\", \"tooltip\": \"Check /tmp/waybar_prayer.log\", \"class\": \"offline\"}"
-  exit 1
-fi
+# 4. Get Actual Time for the Bar
+# We just map the NEXT_NAME to the time we just extracted
+case $NEXT_NAME in
+"Fajr") ACTUAL_TIME=$T_FAJR ;;
+"Dhuhr") ACTUAL_TIME=$T_DHUHR ;;
+"Asr") ACTUAL_TIME=$T_ASR ;;
+"Maghrib") ACTUAL_TIME=$T_MAGHRIB ;;
+"Isha") ACTUAL_TIME=$T_ISHA ;;
+*) ACTUAL_TIME="--" ;;
+esac
 
-if [ "$CURRENT_MINS" -lt $(to_mins "$FAJR") ]; then
-  NEXT="Fajr"
-  TIME="$FAJR"
-elif [ "$CURRENT_MINS" -lt $(to_mins "$DHUHR") ]; then
-  NEXT="Dhuhr"
-  TIME="$DHUHR"
-elif [ "$CURRENT_MINS" -lt $(to_mins "$ASR") ]; then
-  NEXT="Asr"
-  TIME="$ASR"
-elif [ "$CURRENT_MINS" -lt $(to_mins "$MAGHRIB") ]; then
-  NEXT="Maghrib"
-  TIME="$MAGHRIB"
-elif [ "$CURRENT_MINS" -lt $(to_mins "$ISHA") ]; then
-  NEXT="Isha"
-  TIME="$ISHA"
+# 5. Build Safe Tooltip String
+# We manually construct the string with literal \n characters
+TOOLTIP_STR="Gresik (go-pray)\n----------------\nFajr: $T_FAJR\nDhuhr: $T_DHUHR\nAsr: $T_ASR\nMaghrib: $T_MAGHRIB\nIsha: $T_ISHA"
+
+# 6. Output JSON
+if [ -z "$NEXT_NAME" ]; then
+  echo '{"text": "Loading...", "class": "offline"}'
 else
-  NEXT="Fajr"
-  TIME="$FAJR" # Tomorrow
+  # Output is guaranteed valid because we built the strings ourselves
+  echo "{\"text\": \"🕌 $NEXT_NAME $ACTUAL_TIME (-$COUNTDOWN)\", \"tooltip\": \"$TOOLTIP_STR\", \"class\": \"prayer\"}"
 fi
-
-# 5. Output JSON
-TOOLTIP="Gresik (go-pray)\n----------------\nFajr: $FAJR\nDhuhr: $DHUHR\nAsr: $ASR\nMaghrib: $MAGHRIB\nIsha: $ISHA"
-echo "{\"text\": \"🕌 $NEXT $TIME\", \"tooltip\": \"$TOOLTIP\", \"class\": \"prayer\"}"

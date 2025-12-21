@@ -26,3 +26,4 @@ location:
 
 # INFO: Output language
 language: en
+time_format: "24h"

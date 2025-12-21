@@ -9,7 +9,7 @@ shutdown="  Shutdown"
 
 # Wofi Command
 # We use a custom style name "powermenu" so it doesn't mess up your normal launcher look
-wofi_command="wofi --show dmenu --conf $HOME/.config/wofi/config.power --style $HOME/.config/wofi/style.power.css"
+wofi_command="wofi --show dmenu --conf $HOME/.config/wofi/config.power --style $HOME/.config/wofi/style.power.css --name wofi-power"
 
 # Options to pass to wofi
 options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
