@@ -58,7 +58,46 @@ The `backup.sh` script handles synchronization from system to repository:
 
 **Backed up applications:** hypr, waybar, rofi, wofi, alacritty, mako, wlogout, go-pray, ghostty, dunst
 
+## Scripts
+
+The repository includes several utility scripts:
+
+### Installation Scripts
+- **install.sh**: Full installation script for new systems
+  - Installs all packages (pacman + AUR)
+  - Backs up existing configs
+  - Applies dotfiles
+  - Sets up directories
+  - Usage: `./install.sh`
+
+- **apply.sh**: Apply configs only (no package installation)
+  - Updates configuration files from repo to system
+  - Useful for refreshing configs on existing setup
+  - Usage: `./apply.sh`
+
+- **backup.sh**: Backup system configs to repository
+  - Copies configs from system to repo
+  - Used to save changes made on system
+  - Usage: `./backup.sh`
+
+### Package List
+- **packages.txt**: Complete list of required packages
+  - Pacman packages
+  - AUR packages (commented)
+  - Organized by category
+
 ## Common Commands
+
+### Installation & Setup
+```bash
+# Fresh installation (new system)
+chmod +x install.sh
+./install.sh
+
+# Apply configs only (existing setup)
+chmod +x apply.sh
+./apply.sh
+```
 
 ### Backup & Sync
 ```bash

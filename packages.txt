@@ -1,0 +1,68 @@
+# Core Hyprland Packages (pacman)
+hyprland
+hyprlock
+hypridle
+hyprpaper
+
+# Status Bar & Launchers
+waybar
+wofi
+rofi
+
+# Terminal Emulators
+alacritty
+ghostty
+
+# Notifications
+mako
+dunst
+
+# Logout Menu
+wlogout
+
+# File Manager
+thunar
+
+# Screenshot Tools
+grim
+slurp
+swappy
+
+# Clipboard
+wl-clipboard
+cliphist
+
+# Media & Audio
+playerctl
+pavucontrol
+pamixer
+
+# Brightness Control
+brightnessctl
+
+# System Tray Applets
+network-manager-applet
+blueman
+udiskie
+
+# Polkit Agent
+polkit-kde-agent
+
+# Qt Theme
+qt6ct
+
+# Fonts
+ttf-jetbrains-mono-nerd
+
+# Portal
+xdg-desktop-portal-hyprland
+
+# Shell Prompt
+starship
+
+# AUR Packages (yay/paru)
+# hyprswitch
+# go-pray-bin
+# catppuccin-gtk-theme-mocha
+# qogir-cursor-theme-git
+# hypremoji
