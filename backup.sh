@@ -107,6 +107,7 @@ backup_configs() {
         "lazygit"
         "lazydocker"
         "hypremoji"
+        "sddm"
     )
 
     for dir in "${config_dirs[@]}"; do

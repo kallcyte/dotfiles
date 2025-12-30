@@ -32,7 +32,6 @@ celluloid
 # Shells
 zsh
 bash
-fish
 
 # Notifications
 mako

@@ -63,8 +63,8 @@ BROWSER_DESCS=("Zen (AUR)" "Firefox (Official)" "Chrome (AUR)" "Edge (AUR)" "Bra
 MEDIA_PLAYERS=("mpv" "vlc" "celluloid")
 MEDIA_PLAYER_DESCS=("Powerful CLI/GUI player" "Classic all-rounder" "GTK frontend for MPV")
 
-SHELLS=("zsh" "bash" "fish")
-SHELL_DESCS=("Z Shell" "Bourne Again Shell" "Friendly Interactive Shell")
+SHELLS=("zsh" "bash")
+SHELL_DESCS=("Z Shell" "Bourne Again Shell")
 
 # AUR specific packages
 AUR_PACKAGES="hyprswitch go-pray-bin catppuccin-gtk-theme-mocha qogir-cursor-theme-git hypremoji bluetui impala lazydocker otf-geist-mono-nerd zen-browser-bin google-chrome microsoft-edge-stable-bin brave-bin ghostty"
@@ -440,6 +440,35 @@ post_install_steps() {
     print_success "Setup complete!"
 }
 
+uninstall_fish() {
+    print_header "Legacy Shell Cleanup"
+    if pacman -Qi fish &>/dev/null; then
+        print_warning "Fish shell is currently installed."
+        read -p "Do you want to UNINSTALL fish and switch to bash/zsh? (y/n) " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            print_info "Uninstalling fish..."
+            run_cmd sudo pacman -Rns fish --noconfirm || true
+            
+            # Ensure user has a valid shell
+            if [[ "$SHELL" == *"fish"* ]]; then
+                 if command -v zsh &>/dev/null; then
+                    print_info "Switching default shell to Zsh..."
+                    run_cmd chsh -s $(which zsh)
+                 else
+                    print_info "Switching default shell to Bash..."
+                    run_cmd chsh -s /bin/bash
+                 fi
+            fi
+            print_success "Fish uninstalled."
+        else
+            print_info "Skipping uninstallation."
+        fi
+    else
+        print_info "Fish shell not detected. Skipping."
+    fi
+}
+
 # ==============================================================================
 # MAIN
 # ==============================================================================
@@ -464,6 +493,7 @@ setup_aur_helper
 install_selected_packages
 backup_and_link_configs
 post_install_steps
+uninstall_fish
 
 echo -e "\n${GREEN}All tasks completed!${NC}"
 echo -e "${CYAN}You may need to logout or restart for all changes to take effect.${NC}"
