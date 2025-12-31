@@ -140,3 +140,8 @@ window#waybar {
     background-color: @mauve;
     color: @base;
 }
+
+#bluetooth.connected {
+  color: @sapphire;
+}
+

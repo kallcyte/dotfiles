@@ -57,14 +57,15 @@
                 "",
                 "",
                 ""
-            ]
+            ]"format-disabled": "󰂲",
         },
         "on-click": "pavucontrol"
     },
     "cpu": {
         "interval": 1,
         "format": " {usage}%",
-        "tooltip": true
+        "tooltip": true, 
+        "on-click": "hyprctl dispatch exec \"[float;center;size 800 600] kitty --class floating_tui -e btop\"",
     },
     "memory": {
         "interval": 1,
@@ -73,7 +74,7 @@
     },
     "network": {
         "interval": 1,
-        "on-click": "kitty --class impala-float -e impala",
+        "on-click": "hyprctl dispatch exec \"[float;center;size 800 600] kitty --class floating_tui -e impala\"",
         "format-wifi": "  ⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
         "format-ethernet": "󰈀  ⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
         "format-linked": "󰈀 (No IP)",
@@ -82,8 +83,9 @@
     },
     "bluetooth": {
         "format": "",
+        "format-off": "󰂲",
         "format-connected": " {device_alias}",
-        "on-click": "kitty --class bluetui-float -e bluetui"
+        "on-click": "hyprctl dispatch exec \"[float;center;size 800 600] kitty --class floating_tui -e bluetui\""
     },
     "custom/power": {
         "format": "⏻",
