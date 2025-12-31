@@ -119,7 +119,7 @@ checkbox_menu() {
     while true; do
         clear
         print_header "$title"
-        echo -e "${CYAN}Use UP/DOWN to navigate, SPACE to toggle, ENTER to confirm${NC}\n"
+        echo -e "${CYAN}Use UP/DOWN to navigate, SPACE to toggle, 'a' to toggle all, ENTER to confirm${NC}\n"
         
         for ((i=0; i<count; i++)); do
             local cursor=" "
@@ -153,6 +153,23 @@ checkbox_menu() {
             else
                 statuses[$current]=true
             fi
+        elif [[ $key == "a" ]]; then
+            local all_selected=true
+            for ((i=0; i<count; i++)); do
+                if [ "${statuses[$i]}" = false ]; then
+                    all_selected=false
+                    break
+                fi
+            done
+            
+            local new_status=true
+            if [ "$all_selected" = true ]; then
+                new_status=false
+            fi
+            
+            for ((i=0; i<count; i++)); do
+                statuses[$i]=$new_status
+            done
         elif [[ $key == $'\x1b' ]]; then
             if read -rsn2 -t 0.1 key 2>/dev/null; then
                 if [[ $key == "[A" || $key == "OA" ]]; then
@@ -206,7 +223,7 @@ apply_config() {
         menu_args+=("${config_dirs[$i]}" "${dir_descs[$i]}")
     done
     
-    MENU_DEFAULT_STATE=true
+    MENU_DEFAULT_STATE=false
     checkbox_menu "Select Configurations to Apply" "${menu_args[@]}"
     
     for idx in "${SELECTED_INDICES[@]}"; do

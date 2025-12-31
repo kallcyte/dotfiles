@@ -103,6 +103,11 @@ window#waybar {
     border-radius: 4px;
 }
 
+
+#custom-cava {
+    background-color: transparent;
+}
+
 #clock {
     background-color: @blue;
     color: @base;
@@ -142,6 +147,5 @@ window#waybar {
 }
 
 #bluetooth.connected {
-  color: @sapphire;
+    color: @sapphire;
 }
-

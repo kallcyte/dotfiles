@@ -1045,3 +1045,294 @@
 [2025-12-31 11:25:27] [INFO] Section: Dotfiles Configuration Applicator
 [2025-12-31 11:25:27] [INFO] Section: Select Configurations to Apply
 [2025-12-31 11:25:29] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:12] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 13:49:12] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:13] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:14] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:15] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:17] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:17] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:17] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:17] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:17] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:17] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:49:24] [INFO] Backup directory: /home/kall/.config_backup_20251231_134912
+[2025-12-31 13:49:24] [INFO] Backing up waybar...
+[2025-12-31 13:49:24] [INFO] Installing waybar config...
+[2025-12-31 13:49:24] [INFO] Ensuring scripts are executable...
+[2025-12-31 13:49:24] [SUCCESS] Configurations applied successfully.
+[2025-12-31 13:50:16] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 13:50:16] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:17] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:18] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:19] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:20] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:21] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:21] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:21] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:21] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:21] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:22] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:23] [INFO] Backup directory: /home/kall/.config_backup_20251231_135016
+[2025-12-31 13:50:23] [INFO] Backing up waybar...
+[2025-12-31 13:50:23] [INFO] Installing waybar config...
+[2025-12-31 13:50:23] [INFO] Ensuring scripts are executable...
+[2025-12-31 13:50:23] [SUCCESS] Configurations applied successfully.
+[2025-12-31 13:50:26] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 13:50:26] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:50:28] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:05] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 13:54:05] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:06] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:06] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:06] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:06] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:06] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:06] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:07] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:08] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:09] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:09] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:09] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:09] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:09] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:09] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:09] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:11] [INFO] Backup directory: /home/kall/.config_backup_20251231_135405
+[2025-12-31 13:54:11] [INFO] Backing up waybar...
+[2025-12-31 13:54:11] [INFO] Installing waybar config...
+[2025-12-31 13:54:11] [INFO] Ensuring scripts are executable...
+[2025-12-31 13:54:11] [SUCCESS] Configurations applied successfully.
+[2025-12-31 13:54:46] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 13:54:46] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:47] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:48] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:49] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:50] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:50] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:50] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:50] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:50] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:50] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:50] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:54:52] [INFO] Backup directory: /home/kall/.config_backup_20251231_135446
+[2025-12-31 13:54:52] [INFO] Backing up waybar...
+[2025-12-31 13:54:52] [INFO] Installing waybar config...
+[2025-12-31 13:54:52] [INFO] Ensuring scripts are executable...
+[2025-12-31 13:54:52] [SUCCESS] Configurations applied successfully.
+[2025-12-31 13:58:40] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 13:58:40] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:41] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:42] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:43] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:44] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:45] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:45] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:45] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:45] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:45] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:45] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:45] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:46] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:58:47] [INFO] Backup directory: /home/kall/.config_backup_20251231_135840
+[2025-12-31 13:58:47] [INFO] Backing up waybar...
+[2025-12-31 13:58:47] [INFO] Installing waybar config...
+[2025-12-31 13:58:47] [INFO] Ensuring scripts are executable...
+[2025-12-31 13:58:47] [SUCCESS] Configurations applied successfully.
+[2025-12-31 13:59:29] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 13:59:29] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:29] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:29] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:30] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:31] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:32] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:33] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:33] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:33] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:33] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:33] [INFO] Section: Select Configurations to Apply
+[2025-12-31 13:59:35] [INFO] Backup directory: /home/kall/.config_backup_20251231_135929
+[2025-12-31 13:59:35] [INFO] Backing up waybar...
+[2025-12-31 13:59:35] [INFO] Installing waybar config...
+[2025-12-31 13:59:35] [INFO] Ensuring scripts are executable...
+[2025-12-31 13:59:35] [SUCCESS] Configurations applied successfully.
+[2025-12-31 14:00:12] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 14:00:12] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:01] [INFO] Section: Dotfiles Configuration Applicator
+[2025-12-31 14:03:01] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:02] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:03] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:04] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:04] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:04] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:04] [INFO] Section: Select Configurations to Apply
+[2025-12-31 14:03:06] [INFO] Backup directory: /home/kall/.config_backup_20251231_140301
+[2025-12-31 14:03:06] [INFO] Backing up waybar...
+[2025-12-31 14:03:06] [INFO] Installing waybar config...
+[2025-12-31 14:03:06] [INFO] Ensuring scripts are executable...
+[2025-12-31 14:03:06] [SUCCESS] Configurations applied successfully.

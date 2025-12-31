@@ -108,6 +108,13 @@ backup_configs() {
         "lazydocker"
         "hypremoji"
         "sddm"
+        "nvim"
+        "btop"
+        "cava"
+        "gtk-3.0"
+        "gtk-4.0"
+        "nwg-look"
+        "Thunar"
     )
 
     for dir in "${config_dirs[@]}"; do
@@ -131,13 +138,21 @@ backup_configs() {
         fi
     done
     
-    # Backup Shell
-    print_info "Syncing Shell Configs..."
+    # Backup Shell & Misc Configs
+    print_info "Syncing Shell & Misc Configs..."
     if [ -f "$HOME/.bashrc" ]; then
         run_cmd cp "$HOME/.bashrc" "$SCRIPT_DIR/"
     fi
     if [ -f "$HOME/.zshrc" ]; then
         run_cmd cp "$HOME/.zshrc" "$SCRIPT_DIR/"
+    fi
+    if [ -f "$HOME/.config/starship.toml" ]; then
+        run_cmd mkdir -p "$SCRIPT_DIR/config"
+        run_cmd cp "$HOME/.config/starship.toml" "$SCRIPT_DIR/config/"
+    fi
+     if [ -f "$HOME/.config/mimeapps.list" ]; then
+        run_cmd mkdir -p "$SCRIPT_DIR/config"
+        run_cmd cp "$HOME/.config/mimeapps.list" "$SCRIPT_DIR/config/"
     fi
     
     print_success "Local backup complete!"
