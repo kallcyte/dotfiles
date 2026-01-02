@@ -11,3 +11,9 @@ compinit
 # End of lines added by compinstall
 
 eval "$(starship init zsh)"
+# Bind Ctrl+Left/Right arrow keys for word jumping
+bindkey '^[[1;5C' forward-word  # Ctrl+Right (adjust code if necessary)
+bindkey '^[[1;5D' backward-word # Ctrl+Left (adjust code if necessary)
+# Alternative common codes:
+bindkey '^[O5C' forward-word
+bindkey '^[O5D' backward-word

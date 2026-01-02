@@ -11,13 +11,19 @@ NEXT_NAME=$(echo "$NEXT_RAW" | awk '{print $1}')
 COUNTDOWN=$(echo "$NEXT_RAW" | awk '{print $3}')
 
 # 3. Parse Individual Times for Tooltip (Safest Method)
-# We find the line, remove the name/colon, and grab the time.
+# We find the line, remove the name/colon, and convert to 24h format.
 get_time() {
-  echo "$CAL_RAW" | grep -i "^$1" | sed "s/$1: //I" | xargs
+  RAW_TIME=$(echo "$CAL_RAW" | grep -i "^$1" | sed "s/$1: //I" | xargs)
+  if [ -n "$RAW_TIME" ]; then
+    date -d "$RAW_TIME" +"%H:%M" 2>/dev/null || echo "$RAW_TIME"
+  else
+    echo "--"
+  fi
 }
 
 T_FAJR=$(get_time "Fajr")
 T_DHUHR=$(get_time "Dhuhr")
+T_JUMUAA=$(get_time "Jumuaa")
 T_ASR=$(get_time "Asr")
 T_MAGHRIB=$(get_time "Maghrib")
 T_ISHA=$(get_time "Isha")
@@ -27,6 +33,7 @@ T_ISHA=$(get_time "Isha")
 case $NEXT_NAME in
 "Fajr") ACTUAL_TIME=$T_FAJR ;;
 "Dhuhr") ACTUAL_TIME=$T_DHUHR ;;
+"Jumuaa") ACTUAL_TIME=$T_JUMUAA ;;
 "Asr") ACTUAL_TIME=$T_ASR ;;
 "Maghrib") ACTUAL_TIME=$T_MAGHRIB ;;
 "Isha") ACTUAL_TIME=$T_ISHA ;;
@@ -35,7 +42,11 @@ esac
 
 # 5. Build Safe Tooltip String
 # We manually construct the string with literal \n characters
-TOOLTIP_STR="Gresik (go-pray)\n----------------\nFajr: $T_FAJR\nDhuhr: $T_DHUHR\nAsr: $T_ASR\nMaghrib: $T_MAGHRIB\nIsha: $T_ISHA"
+if [ "$(date +%u)" -eq 5 ]; then
+  TOOLTIP_STR="Gresik (go-pray)\n----------------\nFajr: $T_FAJR\nJumuaa: $T_JUMUAA\nAsr: $T_ASR\nMaghrib: $T_MAGHRIB\nIsha: $T_ISHA"
+else
+  TOOLTIP_STR="Gresik (go-pray)\n----------------\nFajr: $T_FAJR\nDhuhr: $T_DHUHR\nAsr: $T_ASR\nMaghrib: $T_MAGHRIB\nIsha: $T_ISHA"
+fi
 
 # 6. Output JSON
 if [ -z "$NEXT_NAME" ]; then

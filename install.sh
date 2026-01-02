@@ -41,8 +41,8 @@ GROUP_ORDER=(
 PKG_GROUPS["Core"]="hyprland hyprlock hypridle hyprpaper waybar wofi rofi dunst wlogout xdg-desktop-portal-hyprland hyprpolkitagent"
 PKG_DESCRIPTIONS["Core"]="Essential Hyprland components and desktop portal"
 
-PKG_GROUPS["Utilities"]="thunar grim slurp swappy wl-clipboard cliphist playerctl pavucontrol pamixer brightnessctl udiskie lazygit lazydocker zsh-autosuggestions zsh-syntax-highlighting pipewire wireplumber pipewire-pulse gvfs thunar-archive-plugin file-roller libnotify btop jq unzip zip"
-PKG_DESCRIPTIONS["Utilities"]="File manager, screenshots, audio, shell plugins, lazy tools"
+PKG_GROUPS["Utilities"]="thunar grim slurp swappy wl-clipboard cliphist playerctl pavucontrol pamixer brightnessctl udiskie lazygit lazydocker zsh-autosuggestions zsh-syntax-highlighting pipewire wireplumber pipewire-pulse gvfs thunar-archive-plugin file-roller libnotify btop jq unzip zip gparted wf-recorder"
+PKG_DESCRIPTIONS["Utilities"]="File manager, screenshots, audio, shell plugins, lazy tools, partition manager, screen recorder"
 
 PKG_GROUPS["Theming"]="starship otf-geist-mono-nerd catppuccin-gtk-theme-mocha qogir-cursor-theme-git hypremoji qt6ct nwg-look cava"
 PKG_DESCRIPTIONS["Theming"]="Fonts, themes, shell prompt, theme managers"
@@ -50,8 +50,8 @@ PKG_DESCRIPTIONS["Theming"]="Fonts, themes, shell prompt, theme managers"
 PKG_GROUPS["Networking"]="bluetui impala bluez bluez-utils"
 PKG_DESCRIPTIONS["Networking"]="TUI/CLI Network and Bluetooth management"
 
-PKG_GROUPS["Development"]="base-devel git"
-PKG_DESCRIPTIONS["Development"]="Basic development tools"
+PKG_GROUPS["Development"]="base-devel git cmake meson cpio"
+PKG_DESCRIPTIONS["Development"]="Basic development tools and Hyprland plugin dependencies"
 
 # Optional Selection Arrays
 TERMINALS=("kitty" "alacritty" "ghostty")
@@ -73,8 +73,8 @@ VIEWER_DESCS=("Lightweight Wayland Image Viewer" "Minimal PDF Viewer" "PDF Suppo
 GAMES=("steam" "heroic-games-launcher-bin")
 GAME_DESCS=("Valve's Gaming Platform" "Epic/GOG/Amazon Games Launcher (AUR)")
 
-CREATIVE=("kdenlive" "gimp" "inkscape" "obs-studio")
-CREATIVE_DESCS=("Video Editor" "Image Manipulator" "Vector Graphics" "Streaming/Recording Software")
+CREATIVE=("kdenlive" "gimp" "inkscape" "obs-studio" "gpu-screen-recorder" "gpu-screen-recorder-gtk")
+CREATIVE_DESCS=("Video Editor" "Image Manipulator" "Vector Graphics" "Streaming/Recording Software" "High Performance Screen Recorder" "Screen Recorder GUI")
 
 OFFICE=("libreoffice-fresh" "zoom")
 OFFICE_DESCS=("Open Source Office Suite" "Video Conferencing (AUR)")
@@ -82,11 +82,11 @@ OFFICE_DESCS=("Open Source Office Suite" "Video Conferencing (AUR)")
 DEV_TOOLS=("docker" "visual-studio-code-bin" "zed" "neovim" "dbeaver" "postman-bin" "insomnia-bin" "bruno-bin" "flyenv-bin")
 DEV_DESCS=("Container Platform" "VS Code (AUR)" "High-performance Code Editor" "Neovim (LazyVim Ready)" "Universal Database Tool" "API Platform (AUR)" "API Client (AUR)" "Fast Git-friendly API Client (AUR)" "Environment Management Tool (AUR)")
 
-EXTRA_UTILS=("winboat-bin" "pritunl-client-electron" "filezilla" "xpipe-bin" "localsend-bin" "freedownloadmanager")
+EXTRA_UTILS=("winboat-bin" "pritunl-client-bin" "filezilla" "xpipe-bin" "localsend-bin" "freedownloadmanager")
 EXTRA_DESCS=("Run Windows Apps (AUR)" "OpenVPN Client (AUR)" "FTP Solution" "Shell Connection Hub (AUR)" "AirDrop Alternative (AUR)" "Download Manager (AUR)")
 
 # AUR specific packages
-AUR_PACKAGES="hyprswitch go-pray-bin catppuccin-gtk-theme-mocha qogir-cursor-theme-git hypremoji bluetui impala lazydocker otf-geist-mono-nerd zen-browser-bin google-chrome microsoft-edge-stable-bin brave-bin ghostty hyprpolkitagent heroic-games-launcher-bin zoom visual-studio-code-bin postman-bin insomnia-bin bruno-bin flyenv-bin winboat-bin pritunl-client-electron xpipe-bin localsend-bin freedownloadmanager"
+AUR_PACKAGES="hyprswitch go-pray-bin catppuccin-gtk-theme-mocha qogir-cursor-theme-git hypremoji bluetui impala lazydocker otf-geist-mono-nerd zen-browser-bin google-chrome microsoft-edge-stable-bin brave-bin ghostty hyprpolkitagent heroic-games-launcher-bin zoom visual-studio-code-bin postman-bin insomnia-bin bruno-bin flyenv-bin winboat-bin pritunl-client-bin xpipe-bin localsend-bin freedownloadmanager gpu-screen-recorder gpu-screen-recorder-gtk"
 
 # ==============================================================================
 # UTILITIES
@@ -137,6 +137,13 @@ run_cmd() {
     fi
 }
 
+# Check if a package is installed
+is_installed() {
+    local package="$1"
+    pacman -Qi "$package" &> /dev/null
+    return $?
+}
+
 # ==============================================================================
 # MENU SYSTEM
 # ==============================================================================
@@ -151,11 +158,19 @@ checkbox_menu() {
     local options=()
     local descs=()
     local statuses=()
+    local installed_states=()
     
     while [ $# -gt 0 ]; do
         options+=("$1")
         descs+=("$2")
         statuses+=(${MENU_DEFAULT_STATE:-true})
+        
+        if is_installed "$1"; then
+             installed_states+=(true)
+        else
+             installed_states+=(false)
+        fi
+        
         shift 2
     done
     
@@ -190,7 +205,12 @@ checkbox_menu() {
                 fi
             fi
             
-            echo -e "${color}${cursor} [${checked}] ${options[$i]} ${NC}- ${descs[$i]}"
+            local installed_indicator=""
+            if [ "${installed_states[$i]}" = true ]; then
+                installed_indicator="${GREEN}[Installed]${NC} "
+            fi
+            
+            echo -e "${color}${cursor} [${checked}] ${options[$i]} ${NC}- ${installed_indicator}${descs[$i]}"
         done
         
         # Read input
@@ -287,104 +307,41 @@ install_selected_packages() {
     
     MENU_DEFAULT_STATE=false
     
-    # 1. Terminals
-    local term_args=()
-    for ((i=0; i<${#TERMINALS[@]}; i++)); do
-        term_args+=("${TERMINALS[$i]}" "${TERMINAL_DESCS[$i]}")
-    done
-    checkbox_menu "Select Terminals" "${term_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${TERMINALS[$idx]}")
-    done
-    
-    # 2. Browsers
-    local browser_args=()
-    for ((i=0; i<${#BROWSERS[@]}; i++)); do
-        browser_args+=("${BROWSERS[$i]}" "${BROWSER_DESCS[$i]}")
-    done
-    checkbox_menu "Select Browsers" "${browser_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${BROWSERS[$idx]}")
-    done
+    # Prepare for consolidated menu
+    local all_args=()
+    local master_package_list=()
 
-    # 3. Media Players
-    local media_args=()
-    for ((i=0; i<${#MEDIA_PLAYERS[@]}; i++)); do
-        media_args+=("${MEDIA_PLAYERS[$i]}" "${MEDIA_PLAYER_DESCS[$i]}")
-    done
-    checkbox_menu "Select Media Players" "${media_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${MEDIA_PLAYERS[$idx]}")
-    done
+    # Helper to add category to the master list
+    add_category_to_menu() {
+        local category_name="$1"
+        # Arrays passed by name
+        local -n pkgs=$2
+        local -n descs=$3
+        
+        for ((i=0; i<${#pkgs[@]}; i++)); do
+            all_args+=("${pkgs[$i]}" "[$category_name] ${descs[$i]}")
+            master_package_list+=("${pkgs[$i]}")
+        done
+    }
 
-    # 4. Shells
-    local shell_args=()
-    for ((i=0; i<${#SHELLS[@]}; i++)); do
-        shell_args+=("${SHELLS[$i]}" "${SHELL_DESCS[$i]}")
-    done
-    checkbox_menu "Select Shells" "${shell_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${SHELLS[$idx]}")
-    done
+    # Add all categories
+    add_category_to_menu "Terminals" TERMINALS TERMINAL_DESCS
+    add_category_to_menu "Browsers" BROWSERS BROWSER_DESCS
+    add_category_to_menu "Media" MEDIA_PLAYERS MEDIA_PLAYER_DESCS
+    add_category_to_menu "Shells" SHELLS SHELL_DESCS
+    add_category_to_menu "Viewers" VIEWERS VIEWER_DESCS
+    add_category_to_menu "Gaming" GAMES GAME_DESCS
+    add_category_to_menu "Creative" CREATIVE CREATIVE_DESCS
+    add_category_to_menu "Office" OFFICE OFFICE_DESCS
+    add_category_to_menu "Dev Tools" DEV_TOOLS DEV_DESCS
+    add_category_to_menu "Extra" EXTRA_UTILS EXTRA_DESCS
 
-    # 5. Viewers
-    local viewer_args=()
-    for ((i=0; i<${#VIEWERS[@]}; i++)); do
-        viewer_args+=("${VIEWERS[$i]}" "${VIEWER_DESCS[$i]}")
-    done
-    checkbox_menu "Select Viewers" "${viewer_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${VIEWERS[$idx]}")
-    done
+    # Show consolidated menu
+    checkbox_menu "Select Additional Applications" "${all_args[@]}"
 
-    # 6. Gaming
-    local game_args=()
-    for ((i=0; i<${#GAMES[@]}; i++)); do
-        game_args+=("${GAMES[$i]}" "${GAME_DESCS[$i]}")
-    done
-    checkbox_menu "Select Games" "${game_args[@]}"
+    # Process selections
     for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${GAMES[$idx]}")
-    done
-
-    # 7. Creative Tools
-    local creative_args=()
-    for ((i=0; i<${#CREATIVE[@]}; i++)); do
-        creative_args+=("${CREATIVE[$i]}" "${CREATIVE_DESCS[$i]}")
-    done
-    checkbox_menu "Select Creative Tools" "${creative_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${CREATIVE[$idx]}")
-    done
-
-    # 8. Office & Productivity
-    local office_args=()
-    for ((i=0; i<${#OFFICE[@]}; i++)); do
-        office_args+=("${OFFICE[$i]}" "${OFFICE_DESCS[$i]}")
-    done
-    checkbox_menu "Select Office & Productivity" "${office_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${OFFICE[$idx]}")
-    done
-
-    # 9. Development Tools
-    local dev_args=()
-    for ((i=0; i<${#DEV_TOOLS[@]}; i++)); do
-        dev_args+=("${DEV_TOOLS[$i]}" "${DEV_DESCS[$i]}")
-    done
-    checkbox_menu "Select Development Tools" "${dev_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${DEV_TOOLS[$idx]}")
-    done
-
-    # 10. Extra Utilities
-    local extra_args=()
-    for ((i=0; i<${#EXTRA_UTILS[@]}; i++)); do
-        extra_args+=("${EXTRA_UTILS[$i]}" "${EXTRA_DESCS[$i]}")
-    done
-    checkbox_menu "Select Extra Utilities" "${extra_args[@]}"
-    for idx in "${SELECTED_INDICES[@]}"; do
-        packages_to_install+=("${EXTRA_UTILS[$idx]}")
+        packages_to_install+=("${master_package_list[$idx]}")
     done
     
     MENU_DEFAULT_STATE=true
@@ -514,6 +471,12 @@ post_install_steps() {
         else
             echo "[DRY RUN] Would add starship init to .bashrc"
         fi
+    fi
+    
+    # Hyprpm (Hyprland Plugin Manager) setup
+    if command -v hyprpm &> /dev/null; then
+        print_info "Updating Hyprland Plugin Manager repositories..."
+        run_cmd hyprpm update
     fi
     
     print_success "Setup complete!"
