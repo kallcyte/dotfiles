@@ -33,18 +33,29 @@
     border: none;
     border-radius: 0;
     font-family: "GeistMono Nerd Font";
-    font-size: 14px;
+    font-size: 12px;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.2);
+    background-color: rgba(30, 30, 46, 0.8);
     color: @text;
+}
+
+/* This is the state when NO windows are active */
+window#waybar.empty {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+/* Optional: If you want the 'hyprland/window' module itself to be hidden when empty */
+#window.empty {
+    background-color: transparent;
 }
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
+    background-color: @surface0;
     color: @subtext0;
     transition: all 0.3s ease-in-out;
     margin: 4px 2px;
@@ -52,13 +63,14 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: @blue;
-    background-color: @surface0;
+    color: @base;
+    background-color: @sapphire;
+    font-weight: 700;
 }
 
 /* Force hover state for ALL workspace buttons */
 #workspaces button:hover {
-    background-color: @sapphire;
+    background-color: @blue;
     color: @base;
     border-radius: 4px;
     /* Matches your other modules */
@@ -69,7 +81,7 @@ window#waybar {
 
 /* Optional: Make the ACTIVE workspace hover look different (darker) */
 #workspaces button.active:hover {
-    background-color: @sky;
+    background-color: @blue;
     color: @base;
 }
 
@@ -101,20 +113,14 @@ window#waybar {
     background-color: @surface0;
     margin: 4px 2px;
     border-radius: 4px;
+    font-weight: 600;
 }
-
 
 #custom-cava {
     background-color: transparent;
-    color: @mauve;
+    color: @blue;
     padding: 0;
-    margin: 0;
     border-radius: 0;
-}
-
-#clock {
-    background-color: @blue;
-    color: @base;
 }
 
 #battery.charging,
@@ -130,9 +136,10 @@ window#waybar {
 #network,
 #cpu,
 #memory {
-    color: @sapphire;
+    color: @blue;
     min-width: 20px;
 }
+
 
 #pulseaudio {
     color: @mauve;
@@ -146,10 +153,9 @@ window#waybar {
 
 #mpris,
 #custom-mpris {
-    background-color: @mauve;
-    color: @base;
+  color: @blue;
 }
 
 #bluetooth.connected {
-    color: @sapphire;
+    color: @blue;
 }
