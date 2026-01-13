@@ -35,10 +35,6 @@ The repository follows a two-level backup system:
 - **Alacritty** (`config/alacritty/alacritty.toml`): Primary terminal, imports Catppuccin Mocha theme
 - **Ghostty** (`config/ghostty/config`): Alternative terminal with matching configuration
 
-**Notifications:**
-- **Mako** (`config/mako/config`): Notification daemon styled with Catppuccin Mocha
-- **Dunst** (`config/dunst/`): Alternative notification daemon
-
 **Religious Tools:**
 - **go-pray** (`config/go-pray/config.toml`): Islamic prayer time calculator for Gresik, Indonesia (Kemenag method)
   - Integrated into Waybar via `prayer-waybar.sh` script
@@ -56,7 +52,7 @@ The `backup.sh` script handles synchronization from system to repository:
 3. Uses `rm -rf` before copying to ensure clean 1:1 sync
 4. Provides git commands reminder for committing changes
 
-**Backed up applications:** hypr, waybar, rofi, wofi, alacritty, mako, wlogout, go-pray, ghostty, dunst
+**Backed up applications:** hypr, waybar, rofi, wofi, alacritty, wlogout, go-pray, ghostty
 
 ## Scripts
 

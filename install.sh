@@ -38,7 +38,7 @@ GROUP_ORDER=(
     "Development"
 )
 
-PKG_GROUPS["Core"]="hyprland hyprlock hypridle hyprpaper waybar wofi rofi dunst wlogout xdg-desktop-portal-hyprland hyprpolkitagent"
+PKG_GROUPS["Core"]="hyprland hyprlock hypridle hyprpaper waybar wofi rofi wlogout xdg-desktop-portal-hyprland hyprpolkitagent"
 PKG_DESCRIPTIONS["Core"]="Essential Hyprland components and desktop portal"
 
 PKG_GROUPS["Utilities"]="thunar grim slurp swappy wl-clipboard cliphist playerctl pavucontrol pamixer brightnessctl udiskie lazygit lazydocker zsh-autosuggestions zsh-syntax-highlighting pipewire wireplumber pipewire-pulse gvfs thunar-archive-plugin file-roller libnotify btop jq unzip zip gparted wf-recorder swaync"
@@ -416,7 +416,7 @@ backup_and_link_configs() {
     print_header "Configuration Files"
     
     # Define config directories relative to script
-    local configs=(hypr waybar rofi wofi alacritty mako wlogout go-pray ghostty dunst swaync)
+    local configs=(hypr waybar rofi wofi alacritty wlogout go-pray ghostty swaync)
     
     read -p "Do you want to install configuration files? (y/n) " -n 1 -r
     echo

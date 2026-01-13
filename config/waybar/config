@@ -5,13 +5,13 @@
     "spacing": 4,
     "modules-left": [
         "hyprland/workspaces",
-        "custom/prayer",
         "hyprland/window",
         "custom/mpris",
         "custom/cava"
     ],
     "modules-center": [
-        
+       "clock",
+       "custom/prayer"
     ],
     "modules-right": [
         "network",
@@ -20,7 +20,6 @@
         "bluetooth",
         "pulseaudio",
         "tray",
-        "clock",
         "custom/notification"
     ],
     "custom/notification": {
@@ -29,12 +28,12 @@
       "format-icons": {
         "notification": "<span foreground='red'><sup></sup></span>",
         "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
         "inhibited-notification": "<span foreground='red'><sup></sup></span>",
         "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": ""
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
       },
       "return-type": "json",
       "exec-if": "which swaync-client",
@@ -66,7 +65,7 @@
         "tooltip": true
     },
     "clock": {
-        "format": "{:%a %d/%m/%y %H:%M:%S}",
+        "format": "{:%a %d/%m %H:%M:%S}",
         "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },

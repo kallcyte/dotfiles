@@ -77,8 +77,6 @@ dotfiles/
 │   ├── ghostty/        # Terminal 2
 │   ├── wofi/           # Launcher
 │   ├── rofi/           # Alternative launcher
-│   ├── mako/           # Notifications
-│   ├── dunst/          # Alternative notifications
 │   ├── go-pray/        # Prayer times utility
 │   └── wlogout/        # Logout menu
 ├── install.sh          # Main interactive installer

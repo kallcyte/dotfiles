@@ -72,9 +72,7 @@ localsend-bin (AUR)
 freedownloadmanager (AUR)
 
 # Notifications
-mako
 libnotify
-dunst
 
 # Logout Menu
 # wlogout

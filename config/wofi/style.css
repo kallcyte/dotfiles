@@ -1,7 +1,7 @@
 /* Main Window */
-window {
+#window {
     margin: 0px;
-    background-color: #1e1e2e;
+    background-color: rgba(30,30,46,.8);
     /* Mocha Base */
     border: 1px solid #89b4fa;
     /* Mocha Blue */
@@ -12,6 +12,7 @@ window {
 /* Inner Container - This adds breathing room so the search bar doesn't touch the border */
 #outer-box {
     margin: 8px;
+    border-radius: 12px;
 }
 
 /* The Search Bar */

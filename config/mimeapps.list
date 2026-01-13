@@ -12,6 +12,10 @@ application/xhtml+xml=zen.desktop
 application/x-extension-xhtml=zen.desktop
 application/x-extension-xht=zen.desktop
 application/pdf=zen.desktop
+inode/directory=org.gnome.Nautilus.desktop
+x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop
+x-scheme-handler/magnet=freedownloadmanager_magnet_up.desktop
+application/x-bittorrent=freedownloadmanager_torrent.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;

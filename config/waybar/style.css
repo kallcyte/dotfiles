@@ -38,13 +38,13 @@
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.8);
+    background-color: rgba(30, 30, 46, 0.95);
     color: @text;
 }
 
 /* This is the state when NO windows are active */
 window#waybar.empty {
-    background-color: transparent;
+    background: linear-gradient(rgba(30,30,46,0.95), rgba(30,30,46,0));
     border-bottom: none;
 }
 
@@ -107,13 +107,28 @@ window#waybar.empty {
 #memory,
 #mpris,
 #custom-cava,
-#custom-mpris {
+#custom-mpris, #custom-notification {
     padding: 0 10px;
     color: @text;
     background-color: @surface0;
     margin: 4px 2px;
     border-radius: 4px;
     font-weight: 600;
+}
+
+#custom-notification.notification,
+#custom-notification.dnd-notification,
+#custom-notification.inhibited-notification {
+  background-color: @mauve;
+  color: @base;
+  transition: background-color 0.3s ease;
+}
+
+#custom-notification.dnd-none,
+#custom-notification.inhibited-none,
+#custom-notification.dnd-inhibited-none {
+  background-color: @red;
+  color: @base;
 }
 
 #custom-cava {
